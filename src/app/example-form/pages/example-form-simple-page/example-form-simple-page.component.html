@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  Simple Form
+</mat-toolbar>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <mat-icon matPrefix>people</mat-icon>
+      <input type="text" matInput formControlName="fname">
+      <mat-error *ngIf="formGroup.get('fname')?.errors?.['required']">Required</mat-error>
+      <mat-hint>Max 10 Characters</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <mat-icon matPrefix>people</mat-icon>
+      <input type="text" matInput formControlName="lname">
+      <mat-error *ngIf="formGroup.get('fname')?.errors?.['required']">Required</mat-error>
+      <mat-hint>Max 10 Characters</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-icon matPrefix>transgender</mat-icon>
+      <mat-select formControlName="gender">
+        <mat-option [value]="null">-- PLS select --</mat-option>
+        <mat-option [value]="'Male'">Male</mat-option>
+        <mat-option [value]="'Female'">Female</mat-option>
+      </mat-select>
+      <mat-error *ngIf="formGroup.get('gender')?.errors?.['required']">Required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-checkbox formControlName="single" [indeterminate]="formGroup.get('single')?.value===null">Are you single</mat-checkbox>
+  </div>
+
+  <div class="button">
+    <button mat-flat-button color="primary" type="submit">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+    <button mat-flat-button color="warn">
+      <mat-icon>cancel</mat-icon>
+      Cancel
+    </button>
+  </div>
+
+</form>
+
+<pre *ngIf="value">{{ value | json }}</pre>

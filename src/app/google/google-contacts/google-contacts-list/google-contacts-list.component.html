@@ -1,0 +1,24 @@
+<div *ngIf="data ; else loading" class="contact-container">
+  <div *ngFor="let person of data.connections" class="contact-list">
+    <div *ngFor="let pic of person.photos" id="picture" class="picture">
+      <img src= '{{ pic.url }}' >
+    </div>
+    <div class="info">
+      <div *ngFor="let name of person.names" class="name">
+        <b>Name</b><span>{{ name.displayName }}</span>
+      </div>
+      <div *ngFor="let email of person.emailAddresses;let i = index" class="email">
+        <b>Email {{ i+1 }}</b><span>{{ email.value }}</span>
+      </div>
+      <div *ngFor="let phone of person.phoneNumbers;let i = index" class="phone">
+        <b>Phone {{ i+1 }}</b><span>{{ phone.value }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <svg class="loading-spinner" viewBox="0 0 50 50">
+    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="7.5"></circle>
+  </svg>
+</ng-template>

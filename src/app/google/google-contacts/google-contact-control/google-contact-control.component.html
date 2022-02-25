@@ -1,0 +1,43 @@
+<div [formGroup]="formGroup" class="create-contact">
+  <p>
+    <b>Name</b><input type="text" formControlName="givenName" (blur)="onTouched()">
+  </p>
+  <p>
+    <b>Family Name</b><input type="text" formControlName="familyName" (blur)="onTouched()">
+  </p>
+
+  <div formArrayName="emailAddresses" class="form-insert">
+    <b>Email</b>
+    <button type="button" (click)="addEmailAddress($event)" class="add">
+      <i class="material-icons">
+        add
+      </i>
+    </button>
+    <div *ngFor=" let mail of emailAddresses.controls; let i = index " [formGroupName]="i" class="form-input">
+      <b>{{ i+1 }}.</b><input type="text" formControlName="value">
+      <button type="button" (click)="deleteEmailAddress(i)" class="del">
+        <i class="material-icons">
+          delete
+        </i>
+      </button>
+    </div>
+  </div>
+
+  <div formArrayName="phoneNumbers" class="form-insert">
+    <b>Phone Number</b>
+    <button type="button" (click)="addPhoneNumber($event)" class="add">
+      <i class="material-icons">
+        add
+      </i>
+    </button>
+    <div *ngFor=" let mail of phoneNumbers.controls; let i = index " [formGroupName]="i" class="form-input">
+      <b>{{ i+1 }}.</b><input type="text" formControlName="value">
+      <button type="button" (click)="deletePhoneNumber(i)" class="del">
+        <i class="material-icons">
+          delete
+        </i>
+      </button>
+    </div>
+  </div>
+
+</div>
