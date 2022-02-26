@@ -5,7 +5,10 @@ import { GoogleContactControlComponent } from './google-contacts/google-contact-
 import { GoogleContactFormComponent } from './google-contacts/google-contact-form/google-contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { PortalModule } from '@angular/cdk/portal';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    PortalModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
   ],
   exports: [
     GoogleContactsListComponent,

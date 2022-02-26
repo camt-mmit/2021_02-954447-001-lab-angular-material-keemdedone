@@ -6,9 +6,9 @@ import { BehaviorSubject, catchError, distinctUntilChanged, from, map, Observabl
 import { GoogleConfiguration, GoogleConfigurationToken, TokenData } from 'src/app/google/models';
 import { arrayBufferToBase64URLencode, randomString, sha256 } from 'src/app/google/utils';
 
-const tokenKeyName = 'Gtoken';
-const codeKeyName = 'Gcode-Verifier';
-const securityKeyName = 'Gsecurity-token';
+const tokenKeyName = 'google-token';
+const codeKeyName = 'google-code-verifier';
+const securityKeyName = 'google-security-token';
 const authUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
 const codeUrl = 'https://oauth2.googleapis.com/token';
 const randomStringLength = 56;
@@ -20,10 +20,15 @@ const securityTokenLength =  16;
 export class GoogleTokenService {
   private readonly codeVerifier: string;
   private readonly codeChallenge$: Observable<string>;
-  private readonly tokenReadySubject = new BehaviorSubject<boolean | null>(null);
-  private tokenData: TokenData | null = null ;
+  private readonly tokenReadySubject = new BehaviorSubject< boolean | null >(
+    null,
+  );
 
-  readonly tokenReady$ = this.tokenReadySubject.asObservable().pipe(distinctUntilChanged());
+  private tokenData: TokenData | null = null;
+
+  readonly tokenReady$ = this.tokenReadySubject
+    .asObservable()
+    .pipe(distinctUntilChanged());
 
   constructor(
     @Inject(GoogleConfigurationToken)
@@ -123,6 +128,7 @@ export class GoogleTokenService {
         stateParams.append('internal_redirect_uri', this.router.url);
         stateParams.append('security_token',security_token)
         url.searchParams.append('state', stateParams.toString());
+
         /*
          * NOTE: The following 2 parameters, prompt and access_type,
          * are required for getting the refresh_token.
@@ -168,8 +174,10 @@ export class GoogleTokenService {
           map((tokenData) => (tokenData ? tokenData.access_token : null)),
         );
       }
+
       return of(this.tokenData.access_token);
     }
+
     return of(null);
   }
 

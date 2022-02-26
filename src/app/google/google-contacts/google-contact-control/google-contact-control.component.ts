@@ -21,7 +21,6 @@ import { Person } from '../../models';
   ],
 })
 export class GoogleContactControlComponent implements OnInit, OnDestroy, ControlValueAccessor, Validators {
-
   formGroup!: FormGroup;
 
   onTouched = () => {};

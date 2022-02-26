@@ -2,12 +2,21 @@ form{
   width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
 pre{
   font-family: monospace;
+}
+
+.gender{
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  align-items: center;
+
 }
 
 .button{

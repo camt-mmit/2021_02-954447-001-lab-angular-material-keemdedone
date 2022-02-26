@@ -1,24 +1,22 @@
-<div *ngIf="data ; else loading" class="contact-container">
-  <div *ngFor="let person of data.connections" class="contact-list">
-    <div *ngFor="let pic of person.photos" id="picture" class="picture">
-      <img src= '{{ pic.url }}' >
+<mat-list *ngIf="data ; else loading" class="contact-container">
+  <mat-list *ngFor="let person of data.connections" class="contact-list-container">
+    <div matLine *ngFor="let pic of person.photos" class="photo" >
+      <img src='{{ pic.url }}'>
     </div>
-    <div class="info">
-      <div *ngFor="let name of person.names" class="name">
+    <div class="list-info-container">
+      <div matLine *ngFor="let name of person.names">
         <b>Name</b><span>{{ name.displayName }}</span>
       </div>
-      <div *ngFor="let email of person.emailAddresses;let i = index" class="email">
+      <div matLine *ngFor="let email of person.emailAddresses;let i = index" >
         <b>Email {{ i+1 }}</b><span>{{ email.value }}</span>
       </div>
-      <div *ngFor="let phone of person.phoneNumbers;let i = index" class="phone">
+      <div matLine *ngFor="let phone of person.phoneNumbers;let i = index" >
         <b>Phone {{ i+1 }}</b><span>{{ phone.value }}</span>
       </div>
     </div>
-  </div>
-</div>
+  </mat-list>
+</mat-list>
 
 <ng-template #loading>
-  <svg class="loading-spinner" viewBox="0 0 50 50">
-    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="7.5"></circle>
-  </svg>
+  <b>DATA LOADING....</b>
 </ng-template>

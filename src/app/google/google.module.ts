@@ -11,8 +11,7 @@ import { PortalModule } from '@angular/cdk/portal';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-
-
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
+    MatCardModule,
     PortalModule,
   ]
 })

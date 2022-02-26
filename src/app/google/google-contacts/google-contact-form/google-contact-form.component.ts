@@ -8,17 +8,16 @@ import { Person } from '../../models';
   styleUrls: ['./google-contact-form.component.scss']
 })
 export class GoogleContactFormComponent implements OnInit {
-
   @Input() data: Person | null = null;
 
   @Output() dataChange = new EventEmitter<Person>();
   @Output() cancel = new EventEmitter<void>();
 
   errorMsg: string | null = null;
-  formGroup! : FormGroup;
+  formGroup! : FormGroup
 
   constructor(
-    private readonly fb: FormBuilder
+    private readonly fb:FormBuilder
   ) {}
 
   ngOnInit(): void {

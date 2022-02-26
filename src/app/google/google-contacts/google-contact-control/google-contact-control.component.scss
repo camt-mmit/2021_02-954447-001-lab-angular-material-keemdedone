@@ -1,0 +1,56 @@
+.create-contact{
+  margin: auto;
+  margin-top: 40px;
+  width: 800px;
+  text-align: right;
+  &>p{
+    &>b::after{
+      padding-left: 2ch;
+      content: "::";
+      font-family: monospace;
+      font-size: 16px;
+      color: red;
+    }
+    &>input{
+      padding-right: 200px;
+      margin-left: 20px;
+      margin-right: 170px;
+      text-align: left;
+    }
+  }
+}
+
+.form-insert{
+  margin-bottom: 10px;
+  &>b{
+    padding-right: 10px;
+    vertical-align: 5px;
+  }
+  &>.add{
+    margin: 0px 500px 0px 0px ;
+    background-color: transparent;
+    border-color: blue;
+    color: blue;
+    border-radius: 20%;
+    cursor: pointer;
+  }
+
+  .form-input{
+    &>b{
+      text-align: right;
+      margin: auto;
+    }
+    &>input{
+      padding-right: 180px;
+      margin: 20px 20px -20px  20px;
+    }
+    &>.del{
+      margin-right: 125px;
+      background-color: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      vertical-align: -7px;
+    }
+  }
+}

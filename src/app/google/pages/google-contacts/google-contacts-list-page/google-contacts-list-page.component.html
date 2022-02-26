@@ -1,6 +1,14 @@
-<div class="link">
-  <a routerLink="./create">
-    Create Contacts
-  </a>
-</div>
+<mat-toolbar color="primary">
+  Contacts List
+</mat-toolbar>
+
+<mat-toolbar>
+  <div class="create-button">
+    <a routerLink="./create">
+      <mat-icon>people</mat-icon>
+      Create Contacts
+    </a>
+  </div>
+</mat-toolbar>
+
 <app-google-contacts-list [data]="data$ | async"></app-google-contacts-list>
