@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <app-google-contact-control formControlName="person"></app-google-contact-control>
+  <div class="button">
+    <button type="submit" class="save">
+      <i class="material-icons">
+        save
+      </i>
+      <b>Save</b>
+    </button>
+    <button type="button" (click)="onCancel()" class="cancel">
+      <i class="material-icons">
+        cancel
+      </i>
+      <b>Cancel</b>
+    </button>
+  </div>
+</form>

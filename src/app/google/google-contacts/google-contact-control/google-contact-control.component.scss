@@ -1,0 +1,41 @@
+.create-contact{
+  margin: auto;
+  margin-top: 50px;
+  width: 800px;
+  text-align: right;
+  &>div{
+    text-align: center;
+  }
+  &>.name{
+    &>.name-field{
+      &>.matInput{
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+.form-insert{
+  margin-bottom: 10px;
+  &>.add{
+    background-color: transparent;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    vertical-align: -7px;
+  }
+  .form-input{
+    &>mat-form-field{
+      margin-left: 46px;
+    }
+    &>.del{
+      background-color: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      vertical-align: -7px;
+      text-align: right;
+      margin-left: 10px;
+    }
+  }
+}

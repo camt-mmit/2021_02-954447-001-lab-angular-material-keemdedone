@@ -1,0 +1,45 @@
+.contact-container{
+  &>.contact-list-container{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 100px;
+    display: flex;
+    &>.photo{
+      box-shadow: 5px 10px lightgrey;
+    }
+    &>.list-info-container{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 16px;
+      margin-left: 20px;
+      &>div{
+        text-align: left;
+        width: 300px;
+        &>b{
+          padding-right: 10px;
+          display: inline-block;
+          width: 80px;
+          text-align: right;
+        }
+        &>span::before{
+          content: ":";
+          margin-right: 10px;
+          color: greenyellow;
+          font-family: monospace;
+          font-size: 20px;
+        }
+        &>span{
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.loading{
+  text-align: center;
+  margin-top: 20%;
+  &>b{
+    font-size: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+}

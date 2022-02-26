@@ -1,0 +1,24 @@
+<mat-list *ngIf="data ; else loading" class="contact-container">
+  <mat-list *ngFor="let person of data.connections" class="contact-list-container">
+    <div matLine *ngFor="let pic of person.photos" class="photo" >
+      <img src='{{ pic.url }}'>
+    </div>
+    <div class="list-info-container">
+      <div matLine *ngFor="let name of person.names">
+        <b>Name</b><span>{{ name.displayName }}</span>
+      </div>
+      <div matLine *ngFor="let email of person.emailAddresses;let i = index" >
+        <b>Email {{ i+1 }}</b><span>{{ email.value }}</span>
+      </div>
+      <div matLine *ngFor="let phone of person.phoneNumbers;let i = index" >
+        <b>Phone {{ i+1 }}</b><span>{{ phone.value }}</span>
+      </div>
+    </div>
+  </mat-list>
+</mat-list>
+
+<ng-template #loading>
+  <div class="loading">
+    <b>DATA LOADING....</b>
+  </div>
+</ng-template>

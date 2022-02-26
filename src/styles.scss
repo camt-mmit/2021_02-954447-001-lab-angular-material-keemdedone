@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-ng3-primary: mat.define-palette(mat.$indigo-palette);
+$my-ng3-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-ng3-warn: mat.define-palette(mat.$red-palette);
+
+$my-ng3-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-ng3-primary,
+      accent: $my-ng3-accent,
+      warn: $my-ng3-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-ng3-theme);
+
+:root {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,69 @@
+<mat-toolbar color="primary">
+  Create Contact Account
+</mat-toolbar>
+
+<div [formGroup]="formGroup" class="create-contact">
+
+  <div class="name">
+    <mat-form-field appearance="outline" class="name-field">
+      <mat-label>Name</mat-label>
+      <mat-icon matPrefix>people</mat-icon>
+      <input type="text" matInput formControlName="givenName">
+      <mat-error *ngIf="formGroup.get('givenName')?.errors?.['required']">Please insert your name</mat-error>
+      <mat-hint>Your name</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Family Name</mat-label>
+      <mat-icon matPrefix>people</mat-icon>
+      <input type="text" matInput formControlName="familyName">
+      <mat-error *ngIf="formGroup.get('familyName')?.errors?.['required']">Please insert your name</mat-error>
+      <mat-hint>Your family name</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div formArrayName="emailAddresses" class="form-insert">
+    <b>Email</b>
+    <button type="button" (click)="addEmailAddress($event)" class="add">
+      <i class="material-icons">
+        add
+      </i>
+    </button>
+    <div *ngFor=" let mail of emailAddresses.controls; let i = index " [formGroupName]="i" class="form-input">
+      <mat-form-field appearance="outline">
+        <mat-label>Email - {{ i+1 }}</mat-label>
+        <mat-icon matPrefix>email</mat-icon>
+        <input matInput type="text" formControlName="value">
+      </mat-form-field>
+      <button type="button" (click)="deleteEmailAddress(i)" class="del">
+        <i class="material-icons">
+          delete
+        </i>
+      </button>
+    </div>
+  </div>
+
+  <div formArrayName="phoneNumbers" class="form-insert">
+    <b>Phone Number</b>
+    <button type="button" (click)="addPhoneNumber($event)" class="add">
+      <i class="material-icons">
+        add
+      </i>
+    </button>
+    <div *ngFor=" let mail of phoneNumbers.controls; let i = index " [formGroupName]="i" class="form-input">
+      <mat-form-field appearance="outline">
+        <mat-label>Phone - {{ i+1 }}.</mat-label>
+        <mat-icon matPrefix>stay_current_portrait</mat-icon>
+        <input matInput type="text" formControlName="value">
+      </mat-form-field>
+      <button type="button" (click)="deletePhoneNumber(i)" class="del">
+        <i class="material-icons">
+          delete
+        </i>
+      </button>
+    </div>
+  </div>
+  
+</div>

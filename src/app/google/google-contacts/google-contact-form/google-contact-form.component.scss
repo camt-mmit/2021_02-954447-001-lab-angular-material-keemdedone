@@ -1,0 +1,33 @@
+.button{
+  text-align: center;
+  &>.save{
+    background: transparent;
+    border-color: blue;
+    cursor: pointer;
+    margin-right: 10px;
+
+    &>i{
+      color: blue;
+    }
+    &>b{
+      vertical-align: 7px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+  }
+
+  &>.cancel{
+    background: transparent;
+    border-color: red;
+    cursor: pointer;
+    margin-left: 10px;
+
+    &>i{
+      color: red;
+    }
+    &>b{
+      vertical-align: 7px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+  }
+
+}
