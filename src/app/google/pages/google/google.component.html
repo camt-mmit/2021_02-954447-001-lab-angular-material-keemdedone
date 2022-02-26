@@ -3,8 +3,8 @@
 </mat-nav-list>
 
 <ng-container [ngSwitch]="tokenReady$ | async">
-  <div *ngSwitchCase="false">
-    <a [href]="authorizationLinks$ | async">Login Google</a>
+  <div *ngSwitchCase="false" class="login">
+    <a [href]="authorizationLinks$ | async">Login Google Account</a>
   </div>
   <router-outlet *ngSwitchCase="true"></router-outlet>
 </ng-container>
